@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>shenme</p>
+    <script>
+        var $ = {};
+        $.camelClass = function(elm){
+            var arrs = elm.split("-");
+            var len = arrs.length;
+            var newArr = [arrs[0]]
+            for(var i = 1;i < len;i++){
+                var elms = arrs[i].split("");
+                var Belm = elms[0].toUpperCase();
+                var newElm = Belm + elms.slice(1).join("");
+                console.log(newElm)
+                newArr.push(newElm);
+            }
+            return newArr.join("")
+        }
+        console.log($.camelClass("ni-ching-fan-le-ma"));
+
+
+        // underscore
+        var _ = {}
+        _.first = function(arr,n=1){
+            var rlt = arr.slice(0,n)
+            return rlt
+        }
+        console.log(_.first([5,6,7,8,9],3))
+
+        _.initial = function(arr,n=1){
+            var rlt = arr.slice(0,-n)
+            return rlt
+        }
+        console.log(_.initial(["aa","bb","cc","dd","ee"],3))
+
+        _.last = function(arr,n){
+            if(n>1){
+                var rlt = arr.slice(-n,-1)
+                var len = arr.length - 1;
+                console.log(len)
+                rlt.push(arr[len])
+            }else{
+                rlt = arr[ arr.length - 1]
+            }
+                return rlt
+
+        }
+        console.log(_.last(["one","two","three","four","five"]))
+
+        _.rest = function(arr,n=1){
+            var rlt = arr.slice(n,arr.length);
+            return rlt
+        }
+        console.log(_.rest(["11","22","33","44","55"],3))
+
+    </script>
+</body>
+</html>
